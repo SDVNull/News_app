@@ -4,13 +4,13 @@ from django.db.models import Sum
 
 
 class Author(models.Model):
-    AuthorUser = models.OneToOneField(User, on_delete=models.CASCADE, related_name='author')
+    author_user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='author')
     rating = models.IntegerField(default=0)
 
     # Переопределять данные методы Django нежелательно, но изменения минимальны
     # Также хотел изменить представление DateТimeField без миллисекунд, но пока безрезультатно
     def __str__(self):
-        return f'Имя автора: {self.AuthorUser}\nРейтинг автора: {self.rating}'
+        return f'Имя автора: {self.author_user}\nРейтинг автора: {self.rating}'
 
     def __repr__(self):
         return self.__str__()
@@ -19,7 +19,7 @@ class Author(models.Model):
         post_rating = self.post_set.aggregate(p_rating=Sum('rating')).get('p_rating')
         if post_rating is None:
             post_rating = 0
-        comm_rating = self.AuthorUser.comment_set.aggregate(c_rating=Sum('rating')).get('c_rating')
+        comm_rating = self.author_user.comment_set.aggregate(c_rating=Sum('rating')).get('c_rating')
         if comm_rating is None:
             comm_rating = 0
         post_comm_rating = Comment.objects.filter(user_comment__author=self).aggregate(pc_rating=Sum('rating')).get('pc_rating')
