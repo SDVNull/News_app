@@ -11,4 +11,5 @@ def correct_words(value):
     for i in req_add.split(): #Создаем список и пробегаем его циклом
         value = re.sub(i.capitalize(), i[0].capitalize() + '*' * (len(i) - 1), value) #Поиск с заглавной буквы
         value = re.sub(i, i[0] + '*' * (len(i) - 1), value, flags=re.IGNORECASE)  #Игнорируем регистр
+        # Догадываюсь, что как то можно было обойтись одной строкой
     return value
