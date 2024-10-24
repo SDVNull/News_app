@@ -20,8 +20,8 @@
         </tr>
         <tr>
             <td>{{ news_detail.header }}</td>
+            <td>{{ news_detail.content }}</td>
             <td>{{ news_detail.time_in |date:'M d Y' }}</td>
-            <td>{{ news_detail.content | truncatechars:20 }}</td>
             <td>{{ news_detail.author.author_user }}</td>
             <td>{{ news_detail.rating }}</td>
         </tr>
