@@ -24,7 +24,7 @@ class ProductsList(ListView):
         context['time_now'] = datetime.now()
         # Добавим ещё одну пустую переменную,
         # чтобы на её примере рассмотреть работу ещё одного фильтра.
-        context['next_sale'] = 'Кошачий дух - я тебя люблю'
+        context['next_sale'] = 'None'
         return context
 
 
