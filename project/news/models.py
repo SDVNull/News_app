@@ -1,3 +1,5 @@
+from tabnanny import verbose
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
@@ -35,6 +37,10 @@ class Category(models.Model):
 
     def __str__(self):
         return f'Категория: {self.name}'
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
 
 class Post(models.Model):
