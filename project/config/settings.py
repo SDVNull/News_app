@@ -51,6 +51,7 @@ MY_APPS = [
     'e_shop',
     'news',
     'simpleapp',
+    'django_filters',
 ]
 
 INSTALLED_APPS = APPS + MY_APPS
