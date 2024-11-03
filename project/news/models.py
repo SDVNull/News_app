@@ -10,7 +10,7 @@ class Author(models.Model):
     rating = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"Имя автора: {self.author_user}\nРейтинг автора: {self.rating}"
+        return f"Имя автора: {self.author_user}"
 
     def __repr__(self):
         return self.__str__()
@@ -71,12 +71,7 @@ class Post(models.Model):
         return self.content[:123] + "..."
 
     def __str__(self):
-        return (
-            f"{self.author}\n"
-            f"Заголовок: {self.header}\n"
-            f"Превью: {self.preview()}\n"
-            f"Рейтинг публикации: {self.rating}"
-        )
+        return f"{self.author}"
 
     def __repr__(self):
         return self.__str__()
